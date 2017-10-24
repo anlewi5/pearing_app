@@ -3,7 +3,7 @@
   <%= f.text_field :username %>\
 
   <%= f.label :password %>
-  <%= f.text_field :password %>
+  <%= f.password_field :password %>
 
   <%= f.label :first_name %>
   <%= f.text_field :first_name %>
@@ -15,7 +15,7 @@
   <%= f.text_field :slack_handle %>
 
   <%= f.label :cohort %>
-  <%= f.integer :cohort %>
+  <%= f.number_field :cohort %>
 
   <%= f.submit %>
 <% end %>
