@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "user login and logout" do
   let(:user) { create(:user) }
-  
+
   def fill_in_user_credientials
     fill_in "session[username]", with: user.username
     fill_in "session[password]", with: user.password
@@ -20,6 +20,7 @@ describe "user login and logout" do
     expect(current_path).to eq(user_path(user))
     expect(page).to have_content("Welcome, user!")
   end
+  
   scenario "user can log out" do
     visit '/'
     click_on "Log In"
