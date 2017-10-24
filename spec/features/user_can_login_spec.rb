@@ -3,7 +3,7 @@ require 'rails_helper'
 
 describe "guest becomes user" do
   scenario "user can log in" do
-    user = create(user)
+    user = create(:user)
 
     visit '/'
 
