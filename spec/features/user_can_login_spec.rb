@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 
-describe "guest becomes user" do
+describe "user login" do
   scenario "user can log in" do
     user = create(:user)
 
