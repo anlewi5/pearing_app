@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-
 describe "user logout" do
   scenario "user logs out" do
-    visit 'user_show_path'
+    user = create(user)
+    visit 'user_show_path(user)'
     expect(page).to have_link("Log Out")
 
     click_on "Log Out"
