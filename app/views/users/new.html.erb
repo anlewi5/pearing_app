@@ -1,0 +1,21 @@
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>\
+
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+
+  <%= f.label :slack_handle %>
+  <%= f.text_field :slack_handle %>
+
+  <%= f.label :cohort %>
+  <%= f.integer :cohort %>
+
+  <%= f.submit %>
+<% end %>
