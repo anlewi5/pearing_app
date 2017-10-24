@@ -2,9 +2,11 @@ require 'rails_helper'
 
 
 describe "user creates request" do
+  let(:user) { create(:user) }
+
   scenario "user creates request" do
 
-    visit 'users_requests_path'
+    visit user_requests_path(user)
 
     click_on "Create New Request"
 
