@@ -2,15 +2,15 @@ require 'rails_helper'
 
 
 describe "user creates request" do
-  let(:user) { create(:user) }
+  let(:default_user) { create(:user, id: 1) }
 
   scenario "user creates request" do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(default_user)
 
-    visit user_requests_path(user)
+    visit user_requests_path(default_user)
 
     click_on "Create New Request"
-
-    expect(current_path).to eq(new_users_request_path)
+    expect(current_path).to eq(new_user_request_path(default_user))
 
     fill_in "request[title]", with: "request"
     fill_in "request[day]", with: Date.new(2001)
@@ -20,7 +20,8 @@ describe "user creates request" do
     fill_in "request[description]", with: "help"
 
     click_on "Create Request"
-
+    save_and_open_page
+    # expect(current_path).to eq(user_request_path(default_user, request))
     expect(page).to have_content("Request request created!")
   end
 end
