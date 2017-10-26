@@ -10,8 +10,7 @@ describe "user edits request" do
     visit user_requests_path(default_user)
 
     click_on "Delete Request"
-
-    expect(current_path).to eq(user_requests_path(default_user))
+    save_and_open_page
     expect(page).not_to have_content("vault")
   end
 end
