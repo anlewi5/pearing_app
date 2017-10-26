@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :destroy, :edit, :update]
-  before_action :set_user
+  before_action :set_user, except: [:request_dashboard]
 
   def index
     @requests = @user.requests
@@ -32,6 +32,10 @@ class RequestsController < ApplicationController
     @request.destroy
 
     redirect_to user_requests_path(@user)
+  end
+
+  def request_dashboard
+    @requests = Request.all
   end
 
   private
