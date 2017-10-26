@@ -1,7 +1,7 @@
 class CreateOffers < ActiveRecord::Migration[5.1]
   def change
     create_table :offers do |t|
-      t.integer :status
+      t.integer :status, defaut: 0
       t.references :user, foreign_key: true
       t.references :request, foreign_key: true
 
