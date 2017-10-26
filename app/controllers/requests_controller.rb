@@ -23,10 +23,14 @@ class RequestsController < ApplicationController
   end
 
   def edit
+    @user = current_user
   end
 
   def update
+    @user = current_user
+    @request = @user.requests.update(request_params)
 
+    redirect_to user_request_path(@user, @request)
   end
 
   def destory

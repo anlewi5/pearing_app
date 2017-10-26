@@ -20,6 +20,6 @@ describe "user creates request" do
 
     click_on "Create Request"
 
-    expect(page).to have_content("Request request created!")
+    expect(page).to have_content("Title: request")
   end
 end

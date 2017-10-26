@@ -1,1 +1,11 @@
-<h1> Request <%= @request.title %> created! </h1>
+<h1> Title: <%= @request.title %> </h1>
+
+<h1> Requested By: <%= User.find(@request.user_id).first_name %>
+
+<h3> When: <%= @request.day %> <%= @request.start_time %> </h3>
+
+<h3> Time Requested: <%= @request.duration %> hours </h3>
+
+<h3> Locaiton: <%= @request.location %> </h3>
+
+<h3> Description: <%= @request.description %> </h3>

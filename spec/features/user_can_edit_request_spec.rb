@@ -11,13 +11,12 @@ describe "user edits request" do
 
     click_on "Edit Request"
 
-    expect(current_path).to eq("users/#{default_user.id}/edit/#{request.id}")
+    expect(current_path).to eq("/users/#{default_user.id}/requests/#{request.id}/edit")
 
     fill_in "request[title]", with: "edited title"
 
     click_on "Update"
 
-    expect(current_path).to eq(user_requests(default_user))
     expect(page).to have_content("edited title")
     expect(page).to have_content("vault")
   end
