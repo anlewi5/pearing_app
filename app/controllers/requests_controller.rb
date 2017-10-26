@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :destroy, :edit, :update]
-  before_action :set_current_user
+  before_action :set_user
 
   def index
     @requests = @user.requests
@@ -49,8 +49,8 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
   end
 
-  def set_current_user
-    @user = current_user
+  def set_user
+    @user = User.find(params[:user_id])
   end
 
 end
