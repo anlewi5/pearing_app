@@ -6,6 +6,6 @@ FactoryBot.define do
     duration "MyString"
     location "vault"
     description "MyString"
-    user nil
+    user
   end
 end
