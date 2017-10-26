@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   resources :users, only: [:new, :index, :create, :show] do
-    resources :requests, only: [:new, :index, :create, :show]
+    resources :requests, only: [:new, :index, :create, :show, :edit]
   end
 
   get '/login', to: 'sessions#new'

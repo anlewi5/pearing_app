@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 describe "user creates request" do
   let(:default_user) { create(:user, id: 1) }
 
@@ -20,8 +19,7 @@ describe "user creates request" do
     fill_in "request[description]", with: "help"
 
     click_on "Create Request"
-    save_and_open_page
-    # expect(current_path).to eq(user_request_path(default_user, request))
+
     expect(page).to have_content("Request request created!")
   end
 end
