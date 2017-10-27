@@ -2,15 +2,17 @@ require 'rails_helper'
 
 describe "as a user with requests" do
   let(:default_user) { create(:user, id: 1) }
-  let(:helper_user) { create(:user, id: 2) }
   let(:request) { create(:request, user: default_user) }
-  let(:offer) { create(:offer, user: helper_user, request: request) }
+
+  before do
+    helper_user = create(:user, id: 2)
+    create(:offer, user: helper_user, request: request)
+  end
 
   scenario "user can accept offers" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(default_user)
 
     visit user_requests_path(default_user)
-    byebug
 
     click_on "Accept Offer"
 
@@ -22,7 +24,7 @@ describe "as a user with requests" do
 
     visit user_requests_path(default_user)
 
-    click_on "Decline Request"
+    click_on "Decline Offer"
 
     expect(page).to have_content("Offer Status: Declined")
   end

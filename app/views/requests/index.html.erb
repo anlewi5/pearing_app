@@ -10,8 +10,15 @@
       </h3>
     </div>
     <div class="panel-body">
-      <%= button_to 'Edit Request', edit_user_request_path(request.user.id, request.id), method: "get", class: 'btn btn-large btn-warning' %>
-      <%= button_to 'Delete Request', user_request_path(request.user.id, request.id), method: "delete", class: 'btn btn-large btn-danger' %>
+      <%= link_to 'Edit Request', edit_user_request_path(request.user.id, request.id), class: 'btn btn-large btn-warning' %>
+      <%= link_to 'Delete Request', user_request_path(request.user.id, request.id), method: "delete", class: 'btn btn-large btn-danger' %>
+      <h3>Offers:</h3>
+      <% request.offers.each do |offer| %>
+        <%= User.find(offer.user_id).first_name %>
+        <p> Offer Status: <%= offer.status_of_offer %> </p>
+        <%= button_to 'Accept Offer', accept_offer_path(offer),  class: 'btn btn-large btn-primary'%>
+        <%= button_to 'Decline Offer', decline_offer_path(offer), class: 'btn btn-large btn-danger' %>
+      <% end %>
     </div>
   </div>
   <% end %>

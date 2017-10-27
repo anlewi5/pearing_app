@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   # resources :requests, only: [:index]
   get '/requests', to: 'requests#request_dashboard'
+  post '/offers/:id/accept', to: 'offers#accept', as: 'accept_offer'
+  post '/offers/:id/decline', to: 'offers#decline', as: 'decline_offer'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
