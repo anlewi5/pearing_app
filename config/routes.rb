@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :index, :create, :show] do
     resources :requests, only: [:new, :index, :create, :show, :edit, :update, :destroy]
-    resources :offers, only: [:create, :show, :index, :destroy]
+    resources :offers, only: [:index, :create, :show, :destroy]
   end
 
   resources :offers, only: [:index]

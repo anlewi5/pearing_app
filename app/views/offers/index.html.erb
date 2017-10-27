@@ -1,7 +1,5 @@
 <h1> <%= current_user.first_name %>'s Offers </h1>
 
-<% @offers.each do |offer| %>
-
 <div class="offer-container container-fluid">
   <% @offers.each do |offer| %>
   <div class="panel panel-default" class=offer_<%= offer.id %>>
@@ -13,10 +11,8 @@
     </div>
     <div class="panel-body">
       <h3> Offer Status: <%= offer.status_of_offer %> </h3>
-      <%= button_to "Delete Offer", user_offer_path(offer.user, offer), method: :delete, class: 'btn btn-large btn-danger' %>
+      <%= button_to "Delete Offer", user_offer_path(offer.user, offer), method: "delete", class: 'btn btn-large btn-danger' %>
     </div>
   </div>
   <% end %>
 </div>
-
-<% end %>

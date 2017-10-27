@@ -15,8 +15,8 @@ USERS_FIRST.each do |name|
                       cohort: rand(100)
                      )
   puts "Created #{user.first_name}"
-  4.times do |num|
-    user.requests.create!(title: REQUESTS.sample, day: Date.new(2017), start_time: Time.now, duration: rand(100), location: LOCATIONS.sample, description: "need help meow")
+  1.times do |num|
+    user.requests.create!(title: REQUESTS.sample, day: Date.new(2017), start_time: Time.now, duration: rand(5), location: LOCATIONS.sample, description: "need help meow")
     puts "Created #{user.requests[num].title}"
   end
 end

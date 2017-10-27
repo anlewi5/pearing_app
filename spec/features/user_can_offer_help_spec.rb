@@ -11,7 +11,7 @@ describe "user creates offer" do
     visit requests_path
 
     click_on "Offer Help"
-    save_and_open_page
+    
     expect(page).to have_content("I can help!")
   end
 end
