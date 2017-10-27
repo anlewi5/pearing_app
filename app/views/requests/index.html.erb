@@ -1,25 +1,38 @@
-<%= link_to "Create New Request", new_user_request_path %>
+<div class="request-index">
+
+  <h1> Your Requests </h1>
+
+  <%= link_to "Create New Request", new_user_request_path, class: 'btn btn-large btn-success' %>
+
+  <div class="request-container container-fluid">
+    <% @requests.each do |request| %>
+    <div class="panel panel-default" class=request_<%= request.id %>>
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <stong><%= link_to request.title, user_request_path(request.user.id, request.id) %></strong>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <%= link_to 'Edit Request', edit_user_request_path(request.user.id, request.id), class: 'btn btn-large btn-warning' %>
+        <%= link_to 'Delete Request', user_request_path(request.user.id, request.id), method: "delete", class: 'btn btn-large btn-danger' %>
+        <h3>Offers:</h3>
 
 
-<div class="request-container container-fluid">
-  <% @requests.each do |request| %>
-  <div class="panel panel-default" class=request_<%= request.id %>>
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <stong><%= link_to request.title, user_request_path(request.user.id, request.id) %></strong>
-      </h3>
+        <div class="offer">
+          <% request.offers.each do |offer| %>
+            <h4><%= User.find(offer.user_id).first_name %> has offered to help!</h4>
+            <h4> Offer Status: <%= offer.status_of_offer %> </h4>
+            <%= button_to 'Accept Offer', accept_offer_path(offer),  class: 'btn btn-large btn-primary'%>
+            <%= button_to 'Decline Offer', decline_offer_path(offer), class: 'btn btn-large btn-danger' %>
+          <% end %>
+        </div>
+
+
+
+
+      </div>
     </div>
-    <div class="panel-body">
-      <%= link_to 'Edit Request', edit_user_request_path(request.user.id, request.id), class: 'btn btn-large btn-warning' %>
-      <%= link_to 'Delete Request', user_request_path(request.user.id, request.id), method: "delete", class: 'btn btn-large btn-danger' %>
-      <h3>Offers:</h3>
-      <% request.offers.each do |offer| %>
-        <%= User.find(offer.user_id).first_name %>
-        <p> Offer Status: <%= offer.status_of_offer %> </p>
-        <%= button_to 'Accept Offer', accept_offer_path(offer),  class: 'btn btn-large btn-primary'%>
-        <%= button_to 'Decline Offer', decline_offer_path(offer), class: 'btn btn-large btn-danger' %>
-      <% end %>
-    </div>
+    <% end %>
   </div>
-  <% end %>
+
 </div>
