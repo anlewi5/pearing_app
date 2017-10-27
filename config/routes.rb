@@ -4,8 +4,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :index, :create, :show] do
     resources :requests, only: [:new, :index, :create, :show, :edit, :update, :destroy]
-    resources :offers, only: [:create]
+    resources :offers, only: [:create, :show, :index]
   end
+
+  resources :offers, only: [:index]
 
   # resources :requests, only: [:index]
   get '/requests', to: 'requests#request_dashboard'

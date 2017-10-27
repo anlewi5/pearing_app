@@ -2,6 +2,10 @@ class OffersController < ApplicationController
   before_action :set_user
   before_action :set_offer, only: [:accept, :decline]
 
+  def index
+    @offers = @user.offers
+  end
+
   def create
     @offer = @user.offers.create!(request_id: params[:request_id],
                                   status: 0

@@ -1,0 +1,20 @@
+<h1> <%= current_user.first_name %>'s Offers </h1>
+
+<% @offers.each do |offer| %>
+
+<div class="offer-container container-fluid">
+  <% @offers.each do |offer| %>
+  <div class="panel panel-default" class=offer_<%= offer.id %>>
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <stong><%= offer.request.title %></strong>
+      </h3>
+    </div>
+    <div class="panel-body">
+      <h3> Offer Status: <%= offer.status_of_offer %> </h3>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<% end %>
