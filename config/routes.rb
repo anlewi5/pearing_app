@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
   resources :offers, only: [:index]
 
-  # resources :requests, only: [:index]
   get '/requests', to: 'requests#request_dashboard'
+  get '/requests/:id', to: 'requests#view_request', as: 'view_request'
   post '/offers/:id/accept', to: 'offers#accept', as: 'accept_offer'
   post '/offers/:id/decline', to: 'offers#decline', as: 'decline_offer'
 

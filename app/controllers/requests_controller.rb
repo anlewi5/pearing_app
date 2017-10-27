@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: [:show, :destroy, :edit, :update]
-  before_action :set_user, except: [:request_dashboard]
+  before_action :set_request, only: [:show, :destroy, :edit, :update, :view_request]
+  before_action :set_user, except: [:request_dashboard, :view_request]
 
   def index
     @requests = @user.requests
@@ -36,6 +36,10 @@ class RequestsController < ApplicationController
 
   def request_dashboard
     @requests = Request.all
+  end
+
+  def view_request
+
   end
 
   private
