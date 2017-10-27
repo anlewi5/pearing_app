@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
   before_action :set_user
-  before_action :set_offer, only: [:accept, :decline]
+  before_action :set_offer, only: [:accept, :decline, :destroy]
 
   def index
     @offers = @user.offers
@@ -12,6 +12,12 @@ class OffersController < ApplicationController
                                  )
 
     redirect_to requests_path
+  end
+
+  def destroy
+    @offer.destroy
+
+    redirect_to user_offers_path(@user)
   end
 
   def accept

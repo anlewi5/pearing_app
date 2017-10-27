@@ -2,8 +2,8 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">
-        <strong> Request Title: <%= @request.title %> </strong>
-        Requested By: <%= User.find(@request.user_id).first_name %>
+        <strong> Request Title: <%= @request.title %> </strong><br>
+        Requested By: <%= User.find(@request.user_id).first_name %><br>
         Description: <%= @request.description %>
       </h3>
     </div>
