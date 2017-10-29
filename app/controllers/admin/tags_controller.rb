@@ -1,6 +1,4 @@
-class Admin::TagsController < ApplicationController
-  before_action :require_admin
-
+class Admin::TagsController < Admin::BaseController
   def index
     @tags = Tag.all
   end
@@ -27,9 +25,4 @@ class Admin::TagsController < ApplicationController
   def tag_params
     params.require(:tag).permit(:title)
   end
-
-  def require_admin
-    render file: "/public/404" unless current_admin?
-  end
-
 end
