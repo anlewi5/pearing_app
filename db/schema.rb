@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171029191024) do
+ActiveRecord::Schema.define(version: 20171029192514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20171029191024) do
     t.string "last_name"
     t.string "slack_handle"
     t.integer "cohort"
+    t.integer "role", default: 0
   end
 
   add_foreign_key "offers", "requests"
