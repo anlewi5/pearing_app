@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :offers, only: [:index]
+  resources :tags, only: [:new, :create]
 
   get '/requests', to: 'requests#request_dashboard'
   get '/requests/:id', to: 'requests#view_request', as: 'view_request'
