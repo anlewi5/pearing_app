@@ -19,6 +19,6 @@ describe "guest becomes user" do
 
     click_on "Create User"
 
-    expect(page).to have_content("Welcome, user!")
+    expect(page).to have_content("Welcome")
   end
 end

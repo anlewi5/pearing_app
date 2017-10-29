@@ -1,19 +1,19 @@
 require 'rails_helper'
 
 describe "admin creates tag" do
-  let(:admin_user) { create(:admin) }
 
   scenario "admin creates tag" do
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin_user)
+    admin = create(:admin)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-    visit tags_path
+    visit admin_tags_path
 
     click_on "Create New Tag"
-    expect(current_path).to eq(new_tag_path)
+    expect(current_path).to eq(new_admin_tag_path)
 
     fill_in "tag[title]", with: "tag title"
 
-    click_on "Create Tag"
+    click_on "Save Tag"
 
     expect(page).to have_content("tag title")
   end

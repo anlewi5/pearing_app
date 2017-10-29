@@ -10,14 +10,14 @@ class Admin::TagsController < Admin::BaseController
   def create
     @tag = Tag.create!(tag_params)
 
-    redirect_to tags_path
+    redirect_to admin_tags_path
   end
 
   def destroy
     @tag = Tag.find(params[:id])
     @tag.destroy
 
-    redirect_to tags_path
+    redirect_to admin_tags_path
   end
 
   private

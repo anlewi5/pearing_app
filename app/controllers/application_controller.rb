@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  before_action :require_login
-
   helper_method :current_user
 
   def current_user
@@ -11,13 +9,5 @@ class ApplicationController < ActionController::Base
 
   def current_admin?
     current_user && current_user.admin?
-  end
-
-  def current_admin?
-    current_user.user?
-  end
-
-  def require_login
-    render file: "/public/404" unless current_user?
   end
 end

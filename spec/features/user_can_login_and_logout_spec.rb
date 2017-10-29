@@ -18,9 +18,9 @@ describe "user login and logout" do
     click_on "Log In"
 
     expect(current_path).to eq(user_path(user))
-    expect(page).to have_content("Welcome, user!")
+    expect(page).to have_content("Welcome")
   end
-  
+
   scenario "user can log out" do
     visit '/'
     click_on "Log In"
