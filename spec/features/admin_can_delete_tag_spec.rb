@@ -10,7 +10,7 @@ describe "admin deletes tag" do
     visit tags_path
 
     click_on "Delete Tag"
-    save_and_open_page
+
     expect(page).not_to have_content("Taggy Tag Tag")
   end
 end

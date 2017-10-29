@@ -21,7 +21,7 @@
         <div class="offer">
           <% request.offers.each do |offer| %>
             <h4><%= User.find(offer.user_id).first_name %> has offered to help!</h4>
-            <h4> Offer Status: <%= offer.status_of_offer %> </h4>
+            <h4> Offer Status: <%= offer.status %> </h4>
             <%= button_to 'Accept Offer', accept_offer_path(offer),  class: 'btn btn-large btn-primary'%>
             <%= button_to 'Decline Offer', decline_offer_path(offer), class: 'btn btn-large btn-danger' %>
           <% end %>

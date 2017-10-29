@@ -8,7 +8,9 @@ describe "user creates request" do
 
     visit user_requests_path(default_user)
 
-    click_on "Create New Request"
+    within('div.request-index') do
+      click_on "Create New Request"
+    end
     expect(current_path).to eq(new_user_request_path(default_user))
 
     fill_in "request[title]", with: "request"

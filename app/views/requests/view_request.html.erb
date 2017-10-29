@@ -14,7 +14,7 @@
       <h3> Location Requested: <%= @request.location %> </h3>
       <% @request.offers.each do |offer| %>
         <h3> <%= User.find(offer.user_id).first_name %> </h3>
-        <h3> Offer Status: <%= offer.status_of_offer %> </h3>
+        <h3> Offer Status: <%= offer.status %> </h3>
       <% end %>
     </div>
   </div>
