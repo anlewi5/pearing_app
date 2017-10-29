@@ -3,7 +3,7 @@
 <%= week_calendar attribute: :start_time, events: @requests do |date, requests| %>
   <%= date %>
   <% requests.each do |request| %>
-    <p><%= request.title %></p>
+    <p><%= request.title %> @ <%= request.time %></p>
   <% end %>
 <% end %>
 
