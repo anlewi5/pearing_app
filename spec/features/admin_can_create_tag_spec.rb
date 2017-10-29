@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "admin creates tag" do
-  let(:admin_user) { create(:admin, id: 1) }
+  let(:admin_user) { create(:admin) }
 
   scenario "admin creates tag" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin_user)
