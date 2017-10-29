@@ -1,0 +1,8 @@
+<h1> Available Tags: </h1>
+
+<% @tags.each do |tag| %>
+  <h3> <%= tag.title %> </h3>
+  <%= link_to 'Delete Tag', admin_tag_path(tag), method: "delete", class: 'btn btn-large btn-danger' %>
+<% end %>
+
+<%= link_to "Create New Tag", new_admin_tag_path %>

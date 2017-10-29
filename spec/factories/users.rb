@@ -15,5 +15,6 @@ FactoryBot.define do
     last_name "admin last"
     slack_handle "admin slack"
     cohort 1234
+    role 1
   end
 end

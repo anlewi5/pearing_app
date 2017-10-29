@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   end
 
   resources :offers, only: [:index]
-  resources :tags, only: [:index, :new, :create, :destroy]
+
+  namespace :admin do
+    resources :tags, only: [:index, :new, :create, :destroy]
+  end
 
   get '/requests', to: 'requests#request_dashboard'
   get '/requests/:id', to: 'requests#view_request', as: 'view_request'
