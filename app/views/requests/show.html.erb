@@ -1,21 +1,22 @@
 <div class="offer-container container-fluid">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">
-        <strong> Request Title: <%= @request.title %> </strong><br>
-        Requested By: <%= User.find(@request.user_id).first_name %><br>
-        Description: <%= @request.description %>
-      </h3>
+      <div class="panel-title">
+        <h3><strong> Request Title: <%= @request.title %> </strong><br></h3>
+        <h3>Requested By: <%= User.find(@request.user_id).first_name %></h3>
+        <h3>Description: <%= @request.description %></h3>
+      </div>
     </div>
     <div class="panel-body">
-      <h3> When: <%= @request.day %> <%= @request.start_time %> </h3>
-      <h3> Start At: <%= @request.start_time %> </h3>
-      <h3> Requested Duration: <%= @request.duration %> hours </h3>
-      <h3> Location Requested: <%= @request.location %> </h3>
+      <h4> When: <%= @request.day %> <%= @request.start_time %> </h4>
+      <h4> Start At: <%= @request.start_time %> </h4>
+      <h4> Requested Duration: <%= @request.duration %> hours </h4>
+      <h4> Location Requested: <%= @request.location %> </h4>
       <% @request.offers.each do |offer| %>
-        <h3> <%= User.find(offer.user_id).first_name %> </h3>
-        <h3> Offer Status: <%= offer.status_of_offer %> </h3>
+        <h4> <%= User.find(offer.user_id).first_name %> </h4>
+        <h4> Offer Status: <%= offer.status_of_offer %> </h4>
       <% end %>
     </div>
   </div>
 </div>
+ 
