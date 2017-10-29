@@ -1,5 +1,12 @@
 <h1> All Requests </h1>
 
+<%= week_calendar attribute: :start_time, events: @requests do |date, requests| %>
+  <%= date %>
+  <% requests.each do |request| %>
+    <p><%= request.title %></p>
+  <% end %>
+<% end %>
+
 <div class="request-container container-fluid">
   <% @requests.each do |request| %>
   <div class="panel panel-default" class=request_<%= request.id %>>
