@@ -1,6 +1,7 @@
 class OffersController < ApplicationController
   before_action :set_user
   before_action :set_offer, only: [:accept, :decline, :destroy]
+  before_action :require_login
 
   def index
     @offers = @user.offers

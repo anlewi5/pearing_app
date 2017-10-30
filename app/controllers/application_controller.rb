@@ -10,4 +10,12 @@ class ApplicationController < ActionController::Base
   def current_admin?
     current_user && current_user.admin?
   end
+
+  def current_user?
+    current_user && current_user.default?
+  end
+
+  def require_login
+    render file: "/public/404" unless current_user?
+  end
 end

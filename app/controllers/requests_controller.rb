@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :destroy, :edit, :update, :view_request]
   before_action :set_user, except: [:request_dashboard, :view_request]
+  before_action :require_login, except: [:request_dashboard, :view_request]
 
   def index
     @requests = @user.requests
