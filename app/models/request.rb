@@ -6,4 +6,8 @@ class Request < ApplicationRecord
   def time
     start_time.strftime('%l:%M %p')
   end
+
+  def date
+    start_time.strftime('%b %-d')
+  end
 end

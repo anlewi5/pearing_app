@@ -3,7 +3,7 @@
 <%= week_calendar attribute: :start_time, events: @requests do |date, requests| %>
   <%= date %>
   <% requests.each do |request| %>
-    <p><%= request.title %> @ <%= request.time %></p>
+    <p><%= link_to request.title, view_request_path(request) %> @ <%= request.time %></p>
   <% end %>
 <% end %>
 
@@ -19,7 +19,7 @@
       </h3>
     </div>
     <div class="panel-body">
-      <h3> When: <%= request.start_time %> </h3>
+      <h3> When: <%= request.date %> @ <%= request.time %> </h3>
       <h3> Time Requested: <%= request.duration %> hours </h3>
       <h3> Location: <%= request.location %> </h3>
       <h3> Description: <%= request.description %> </h3>
